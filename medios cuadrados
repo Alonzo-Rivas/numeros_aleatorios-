@@ -1,0 +1,21 @@
+import math
+
+def medios_cuadrados(semilla, n):
+    numeros = []
+    x = semilla**2
+    digitos = len(str(x))
+    mitad = digitos // 2
+
+    for _ in range(n):
+        x = str(x).zfill(2*mitad)
+        x = int(x[mitad:mitad+mitad])
+        numeros.append(x / 10**mitad)
+        x = x**2
+
+    return numeros
+
+# Ejemplo de uso:
+semilla = 1234
+cantidad = 100
+aleatorios_medios = medios_cuadrados(semilla, cantidad)
+print(aleatorios_medios)
